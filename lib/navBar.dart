@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'myColors.dart';
-import 'screens/chat.dart';
+import 'widgets.dart';
+import 'screens/start/chat.dart';
 import 'screens/news.dart';
 import 'screens/userProfile.dart';
 

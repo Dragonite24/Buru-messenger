@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:messenger/models/user.dart';
 
-import '../myColors.dart';
+import '../widgets.dart';
 
 class UserProfile extends StatefulWidget {
   @override

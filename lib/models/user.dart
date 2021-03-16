@@ -1,17 +1,47 @@
+// To parse this JSON data, do
+//
+//     final user = userFromJson(jsonString);
+
+import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
+
+User userFromJson(String str) => User.fromJson(json.decode(str));
+
+String userToJson(User data) => json.encode(data.toJson());
+
 class User {
-  final int id;
-  final String name;
-  final String username;
-  final String email;
+  User({
+    this.id,
+    this.username,
+    this.password,
+  });
 
-  User({this.id, this.name, this.username, this.email});
+  int id;
+  String username;
+  String password;
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      id: json['id'],
-      name: json['name'],
-      username: json['username'],
-      email: json['email'],
-    );
-  }
+  factory User.fromJson(Map<String, dynamic> json) => User(
+        id: json["id"],
+        username: json["username"],
+        password: json["password"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "username": username,
+        "password": password,
+      };
+}
+
+class ChatUsers {
+  String name;
+  String messageText;
+  String imageURL;
+  String time;
+  ChatUsers(
+      {@required this.name,
+      @required this.messageText,
+      @required this.imageURL,
+      @required this.time});
 }
