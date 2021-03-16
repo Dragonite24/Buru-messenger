@@ -9,8 +9,8 @@ class Clr {
   static final text = Color(0xFFFFFFFF);
   static final semiText = Color(0xFFB8B8B8);
 
-  static final navBar = Color(0xFF181818);
-  static final navBarUnselected = Color(0xFF5E5E5E);
+  static final navBar = Color(0xFF1D1E22);
+  static final navBarUnselected = Color(0xFFD3D3D3);
 
   static final Shader linearGradient = LinearGradient(
     colors: <Color>[

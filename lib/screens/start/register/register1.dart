@@ -30,9 +30,7 @@ class _Register1State extends State<Register1> {
                           color: Clr.text,
                           fontSize: 18,
                         )),
-                    SizedBox(height: 30),
                     Image.asset('assets/reg1.png'),
-                    SizedBox(height: 15),
                     Text("Registration",
                         style: TextStyle(
                             color: Clr.text,
@@ -60,7 +58,7 @@ class _Register1State extends State<Register1> {
 
                     TextFormField(
                       decoration: InputDecoration(
-                        labelText: 'зополните номер тилифона',
+                        labelText: 'Enter phone number',
                         labelStyle: TextStyle(color: Colors.grey),
                         suffix: Icon(
                           Icons.close_rounded,

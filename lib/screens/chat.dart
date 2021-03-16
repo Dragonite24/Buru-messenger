@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messenger/models/user.dart';
 
-import '../../widgets.dart';
+import '../widgets.dart';
 import 'chatDetail.dart';
 
 class ChatPage extends StatefulWidget {
@@ -100,18 +100,10 @@ class _ChatPageState extends State<ChatPage> {
         primary: true,
         slivers: <Widget>[
           SliverAppBar(
-            backgroundColor: Clr.semi,
-            title: Text('Сообщения'),
+            backgroundColor: Clr.navBar,
+            title: Text('Buru'),
             floating: true,
-            leading: IconButton(
-              icon: const Icon(
-                Icons.person_search_outlined,
-              ),
-              onPressed: () {
-                // Scaffold.of(context).openDrawer();
-              },
-              tooltip: 'Добавить друга',
-            ),
+            leading: null,
             actions: <Widget>[
               IconButton(
                 icon: Icon(Icons.search_outlined),

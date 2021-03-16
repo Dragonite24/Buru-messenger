@@ -12,7 +12,7 @@ class Welcome extends StatefulWidget {
 
 class _WelcomeState extends State<Welcome> {
   startTime() async {
-    var duration = new Duration(seconds: 1);
+    var duration = new Duration(seconds: 2);
     return new Timer(duration, route);
   }
 
