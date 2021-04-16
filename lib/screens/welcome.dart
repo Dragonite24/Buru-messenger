@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:messenger/screens/start/login.dart';
-
 import '../widgets.dart';
 
 class Welcome extends StatefulWidget {
@@ -12,7 +10,7 @@ class Welcome extends StatefulWidget {
 
 class _WelcomeState extends State<Welcome> {
   startTime() async {
-    var duration = new Duration(seconds: 2);
+    var duration = new Duration(seconds: 10);
     return new Timer(duration, route);
   }
 
@@ -50,10 +48,9 @@ class _WelcomeState extends State<Welcome> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 //Clr.textGradient('Buru', 60.0),
-                Image.asset(
-                  "assets/logo.png",
-                  scale: 7,
-                ),
+
+                Image.asset("assets/logo.png", scale: 7),
+
                 // SizedBox(height: 32),
                 // Clr.outlineBtn('Вход', Login(), context),
                 // Clr.outlineBtn('Регистрация', OnBoardingPage(), context),

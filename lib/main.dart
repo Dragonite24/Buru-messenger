@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messenger/screens/start/login.dart';
+import 'screens/blink.dart';
+import 'screens/lol.dart';
 import 'screens/start/register/register1.dart';
 import 'screens/start/register/register2.dart';
 import 'screens/start/register/register3.dart';
@@ -22,6 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Welcome(),
+        '/blink': (context) => Blink(),
         '/register1': (context) => Register1(),
         '/register2': (context) => Register2(),
         '/register3': (context) => Register3(),
