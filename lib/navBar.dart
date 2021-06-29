@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets.dart';
+import 'widgets/widgets.dart';
 import 'screens/chat.dart';
 import 'screens/news.dart';
 import 'screens/userProfile.dart';

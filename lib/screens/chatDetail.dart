@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets.dart';
+import '../widgets/widgets.dart';
 
 class ChatDetailPage extends StatefulWidget {
   @override

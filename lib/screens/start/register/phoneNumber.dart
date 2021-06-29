@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import '../../../widgets.dart';
-import '../../lol.dart';
+import 'package:messenger/screens/start/register/confirmation.dart';
+import '../../../widgets/widgets.dart';
 
-class Register1 extends StatefulWidget {
+class PhoneNumber extends StatefulWidget {
   @override
-  _Register1State createState() => _Register1State();
+  _PhoneNumberState createState() => _PhoneNumberState();
 }
 
-class _Register1State extends State<Register1> {
+class _PhoneNumberState extends State<PhoneNumber> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -82,7 +81,11 @@ class _Register1State extends State<Register1> {
                           if (_formKey.currentState.validate())
                             {
                               // If the form is valid
-                              Navigator.pushNamed(context, '/register2')
+                              Navigator.push<void>(
+                                  context,
+                                  MaterialPageRoute<void>(
+                                      builder: (BuildContext context) =>
+                                          Confirmation()))
                             }
                         },
                         child: Text(
@@ -108,16 +111,16 @@ class _Register1State extends State<Register1> {
   }
 }
 
-extension EmailValidator on String {
-  bool regExpressionEmail() {
-    return RegExp(
-            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-        .hasMatch(this);
-  }
-}
+// extension EmailValidator on String {
+//   bool regExpressionEmail() {
+//     return RegExp(
+//             r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+//         .hasMatch(this);
+//   }
+// }
 
-extension PasswordValidator on String {
-  bool regExpressionPass() {
-    return RegExp(r'^(?=.*?[a-z])(?=.*?[0-9]).{8,}$').hasMatch(this);
-  }
-}
+// extension PasswordValidator on String {
+//   bool regExpressionPass() {
+//     return RegExp(r'^(?=.*?[a-z])(?=.*?[0-9]).{8,}$').hasMatch(this);
+//   }
+// }

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:messenger/models/http_service.dart';
 import 'package:messenger/models/users.dart';
 
-import '../widgets.dart';
+import '../widgets/widgets.dart';
 
 class NewsPage extends StatefulWidget {
+  final BuildContext navbarContext;
+
+  NewsPage({this.navbarContext});
   @override
   _NewsPageState createState() => _NewsPageState();
 }
 
 class _NewsPageState extends State<NewsPage> {
-  final HttpService httpService = HttpService();
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: httpService.getUsers(),
+      //future: httpService.getUsers(),
       builder: (BuildContext context, AsyncSnapshot<List<Users>> snapshot) {
         List<Users> users = snapshot.data;
         switch (snapshot.connectionState) {

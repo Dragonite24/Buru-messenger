@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:messenger/widgets/constants.dart';
 
-import '../../widgets.dart';
+import '../../widgets/widgets.dart';
 import '../../navBar.dart';
 
 class Login extends StatefulWidget {
@@ -44,7 +45,7 @@ class _LoginState extends State<Login> {
                                     fontSize: 30.0,
                                     fontWeight: FontWeight.bold,
                                     foreground: Paint()
-                                      ..shader = Clr.linearGradient),
+                                      ..shader = linearGradient),
                               ),
                             ],
                           ),

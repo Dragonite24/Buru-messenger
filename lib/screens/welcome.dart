@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../widgets.dart';
+import 'package:messenger/screens/start/login.dart';
+import 'package:messenger/screens/start/register/phoneNumber.dart';
+import '../widgets/widgets.dart';
 
 class Welcome extends StatefulWidget {
   @override
@@ -10,16 +12,22 @@ class Welcome extends StatefulWidget {
 
 class _WelcomeState extends State<Welcome> {
   startTime() async {
-    var duration = new Duration(seconds: 10);
+    var duration = new Duration(seconds: 2);
     return new Timer(duration, route);
   }
 
   route() {
     // если зареган то на главную
     if (false)
-      Navigator.pushReplacementNamed(context, '/login');
+      Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+              builder: (BuildContext context) => Login()));
     else
-      Navigator.pushReplacementNamed(context, '/register1');
+      Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+              builder: (BuildContext context) => PhoneNumber()));
   }
 
   @override
@@ -31,12 +39,6 @@ class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: initScreen(context),
-    );
-  }
-
-  initScreen(BuildContext context) {
-    return Scaffold(
       backgroundColor: Clr.main,
       body: SafeArea(
         child: Center(
@@ -47,13 +49,7 @@ class _WelcomeState extends State<Welcome> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                //Clr.textGradient('Buru', 60.0),
-
                 Image.asset("assets/logo.png", scale: 7),
-
-                // SizedBox(height: 32),
-                // Clr.outlineBtn('Вход', Login(), context),
-                // Clr.outlineBtn('Регистрация', OnBoardingPage(), context),
               ],
             ),
           ),

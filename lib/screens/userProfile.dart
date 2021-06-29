@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:messenger/models/user.dart';
 
-import '../widgets.dart';
+import '../widgets/widgets.dart';
 
 class UserProfile extends StatefulWidget {
   @override

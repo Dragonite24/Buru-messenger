@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../navBar.dart';
-import '../../../widgets.dart';
+import '../../../widgets/widgets.dart';
 
 class Register3 extends StatefulWidget {
   @override
@@ -12,6 +12,7 @@ class _Register3State extends State<Register3> {
   var _nickname = TextEditingController();
   var _email = TextEditingController();
   var _password = TextEditingController();
+  bool _isAgree = false;
 
   @override
   Widget build(BuildContext context) {
@@ -133,8 +134,12 @@ class _Register3State extends State<Register3> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Checkbox(
-                          value: true,
-                          onChanged: null,
+                          value: _isAgree,
+                          onChanged: (bool _newVal) {
+                            setState(() {
+                              _isAgree = _newVal;
+                            });
+                          },
                           activeColor: Clr.blue,
                         ),
                         RichText(
@@ -168,11 +173,12 @@ class _Register3State extends State<Register3> {
                       width: 300,
                       child: FlatButton(
                         onPressed: () => {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => BottomNavBar(),
+                          if (_isAgree)
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => BottomNavBar(),
+                              ),
                             ),
-                          ),
                         },
                         child: Text(
                           "Next",

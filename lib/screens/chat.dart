@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messenger/models/user.dart';
 
-import '../widgets.dart';
+import '../widgets/widgets.dart';
 import 'chatDetail.dart';
 
 class ChatPage extends StatefulWidget {
