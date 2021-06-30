@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:messenger/widgets/constants.dart';
 import 'custom_cursor_widget.dart';
 
 class SingleCellWidget extends StatefulWidget {
@@ -23,12 +24,13 @@ class _SingleCellWidgetState extends State<SingleCellWidget> {
       alignment: Alignment.center,
       children: <Widget>[
         Container(
-            width: 40,
-            height: 45,
+            width: 63,
+            height: 67,
             decoration: BoxDecoration(
-                border: Border(
-              bottom: BorderSide(color: Color(0xFF16FF00), width: 2),
-            )),
+              color: Color(0xFF3A3D45),
+              borderRadius: BorderRadius.circular(15),
+
+            ),
             child: Center(
               child: Text(
                 widget.text.toString(),

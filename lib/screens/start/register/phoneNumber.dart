@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:messenger/screens/start/register/confirmation.dart';
+import 'package:messenger/widgets/buruButtons.dart';
+import 'package:messenger/widgets/buruScaffold.dart';
+import 'package:messenger/widgets/buruTextfield.dart';
+import 'package:messenger/widgets/constants.dart';
 import '../../../widgets/widgets.dart';
 
 class PhoneNumber extends StatefulWidget {
@@ -9,100 +13,65 @@ class PhoneNumber extends StatefulWidget {
 
 class _PhoneNumberState extends State<PhoneNumber> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController _phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Clr.main,
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    return BuruScaffold(
       body: SafeArea(
-        child: Container(
-          alignment: Alignment.topCenter,
-          child: Form(
-            key: _formKey,
-            child: SingleChildScrollView(
-              child: Container(
-                constraints: BoxConstraints(maxWidth: 400),
-                padding: const EdgeInsets.symmetric(
-                    vertical: 40.0, horizontal: 25.0),
-                child: Column(
-                  children: <Widget>[
-                    Text("Step 1/3",
-                        style: TextStyle(
-                          color: Clr.text,
-                          fontSize: 18,
-                        )),
-                    Image.asset('assets/reg1.png'),
-                    Text("Registration",
-                        style: TextStyle(
-                            color: Clr.text,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
-                    Text(
-                      "Please enter your phone number. We will send \n      you 4-digit code to verify you account",
-                      style: TextStyle(
-                          color: Color(0xFFF2F2F2),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                          wordSpacing: 1.5,
-                          height: 1.5),
-                    ),
-
-                    SizedBox(height: 20),
-                    Text(
-                      "Russian Federation",
-                      style: TextStyle(
-                          color: Clr.blue,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300),
-                    ),
-
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: 'Enter phone number',
-                        labelStyle: TextStyle(color: Colors.grey),
-                        suffix: Icon(
-                          Icons.close_rounded,
-                          color: Colors.grey,
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Clr.blue),
-                        ),
-                      ),
-                      style: TextStyle(color: Clr.text),
-                    ),
-                    SizedBox(height: 50),
-
-                    /// Login button after checking your email and password
-                    Container(
-                      height: 60,
-                      width: double.infinity,
-                      child: FlatButton(
-                        onPressed: () => {
-                          if (_formKey.currentState.validate())
-                            {
-                              // If the form is valid
-                              Navigator.push<void>(
-                                  context,
-                                  MaterialPageRoute<void>(
-                                      builder: (BuildContext context) =>
-                                          Confirmation()))
-                            }
-                        },
-                        child: Text(
-                          "Next",
-                          style: TextStyle(color: Clr.text, fontSize: 18),
-                        ),
-                      ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          gradient: LinearGradient(
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft,
-                              colors: [Color(0xffFF5555), Color(0xff6025F5)])),
-                    ),
-                  ],
+        child: Form(
+          key: _formKey,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 45, vertical: 30),
+            child: Column(
+              children: <Widget>[
+                Text("Step 1/3",
+                    style: TextStyle(
+                      color: buruText,
+                      fontSize: 18,
+                    )),
+                Image.asset('assets/reg1.png', scale: width * 0.013),
+                Text("Registration",
+                    style: TextStyle(
+                        color: Clr.text,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold)),
+                SizedBox(height: 10),
+                Text(
+                  "Please enter your phone number. We will send \n      you 4-digit code to verify you account",
+                  style: TextStyle(
+                      color: Color(0xFFF2F2F2),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300,
+                      wordSpacing: 2,
+                      height: 1.5),
                 ),
-              ),
+                SizedBox(height: 20),
+                Text(
+                  "Russian Federation",
+                  style: TextStyle(
+                      color: buruBlue,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300),
+                ),
+                SizedBox(height: 10),
+                BuruPhoneField(
+                  controller: _phoneController,
+                ),
+                SizedBox(height: 50),
+
+                /// Login button after checking your email and password
+                BuruButton(
+                  text: 'Next',
+                  onTap: () {
+                    Navigator.push<void>(
+                        context,
+                        MaterialPageRoute<void>(
+                            builder: (BuildContext context) => Confirmation(phone: _phoneController.text)));
+                  },
+                ),
+              ],
             ),
           ),
         ),

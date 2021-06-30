@@ -1,15 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:messenger/widgets/constants.dart';
 
 class BuruButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
   final bool isOpacity;
 
-  BuruButton({
-    @required this.text,
-    this.onTap,
-    this.isOpacity = true
-  });
+  BuruButton({@required this.text, this.onTap, this.isOpacity = true});
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -17,31 +15,19 @@ class BuruButton extends StatelessWidget {
       child: Opacity(
         opacity: isOpacity ? 1 : 0.5,
         child: Container(
-            width: double.infinity,
-            height: 52,
-            decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(10), //border corner radius
-                boxShadow:[
-                  BoxShadow(
-                      offset: Offset(0.0, 12.0),
-                      blurRadius: 40.0,
-                      color: Color.fromARGB(53, 84, 209, 0)
-                  )
-                ]
-            ),
-            child: Center(
-                child: Text(
-                    text,
-                    style: TextStyle(
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                        color: Colors.white
-                    )
-                )
-            )
-        )
-      )
-  );
+          height: 50,
+          width: double.infinity,
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: TextStyle(color: buruText, fontSize: 18,fontWeight: FontWeight.bold)
+          ),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Color(0xffFF5555), Color(0xff6025F5)])),
+        ),
+      ));
 }

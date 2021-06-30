@@ -6,6 +6,7 @@ import 'package:messenger/screens/news.dart';
 import 'package:messenger/screens/userProfile.dart';
 
 import '../main.dart';
+import 'constants.dart';
 
 class BuruNavbar extends StatefulWidget {
   final bool isFromSignUp;
@@ -35,16 +36,16 @@ class BuruNavbarState extends State<BuruNavbar> {
     if (index == _currentIndex) {
       switch (index) {
         case 0:
-          mainKey.currentState.popUntil((r) => r.isFirst);
+          contactsKey.currentState.popUntil((r) => r.isFirst);
           break;
         case 1:
-          mapKey.currentState.popUntil((r) => r.isFirst);
+          callsKey.currentState.popUntil((r) => r.isFirst);
           break;
         case 2:
-          ratingKey.currentState.popUntil((r) => r.isFirst);
+          chatsKey.currentState.popUntil((r) => r.isFirst);
           break;
         case 3:
-          settingsKey.currentState.popUntil((r) => r.isFirst);
+          homeKey.currentState.popUntil((r) => r.isFirst);
           break;
       }
     } else setState(() => _currentIndex = index);
@@ -61,12 +62,12 @@ class BuruNavbarState extends State<BuruNavbar> {
               key: myKey,
               tabBar: CupertinoTabBar(
                 currentIndex: _currentIndex,
-                backgroundColor: Colors.white,
+                backgroundColor: buruMain,
                 items: <BottomNavigationBarItem>[
-                  navbarItem("История", "main", 0),
-                  navbarItem("Карта", "map", 1),
-                  navbarItem("Рейтинг", "rating", 2),
-                  navbarItem("Настройки", "settings", 3)
+                  navbarItem("contacts", 0),
+                  navbarItem("calls", 1),
+                  navbarItem("chats", 2),
+                  navbarItem("home", 3)
                 ],
                 onTap: onItemTapped,
               ),
@@ -75,25 +76,25 @@ class BuruNavbarState extends State<BuruNavbar> {
                 switch (index) {
                   case 0:
                     currentPage = CupertinoTabView(
-                        navigatorKey: mainKey,
+                        navigatorKey: contactsKey,
                         builder: (buildContext) => NewsPage()
                     );
                     break;
                   case 1:
                     currentPage = CupertinoTabView(
-                        navigatorKey: mapKey,
+                        navigatorKey: callsKey,
                         builder: (context) => NewsPage()
                     );
                     break;
                   case 2:
                     currentPage = CupertinoTabView(
-                        navigatorKey: ratingKey,
+                        navigatorKey: chatsKey,
                         builder: (context) => ChatPage()
                     );
                     break;
                   case 3:
                     currentPage = CupertinoTabView(
-                        navigatorKey: settingsKey,
+                        navigatorKey: homeKey,
                         builder: (buildContext) => UserProfile()
                     );
                     break;
@@ -104,22 +105,13 @@ class BuruNavbarState extends State<BuruNavbar> {
   );
 
   BottomNavigationBarItem navbarItem(
-      String name, image,
+      String image,
       int index
       ) => BottomNavigationBarItem(
           icon: SvgPicture.asset(
               _currentIndex == index
-                  ? "assets/navbar/${image}_active.svg"
-                  : "images/navbar/${image}_inactive.svg"
-          ),
-          title: Text(
-              name,
-              style: TextStyle(
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 12,
-                  color: _currentIndex == index ? Colors.red : null
-              )
+                  ? "assets/icons/navbar/${image}_active.svg"
+                  : "assets/icons/navbar/${image}_inactive.svg"
           )
       );
 }

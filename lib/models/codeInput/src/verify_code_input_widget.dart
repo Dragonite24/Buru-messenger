@@ -41,7 +41,7 @@ class _VerifyCodeInputState extends State<VerifyCodeInput> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
+      height: 67,
       child: Stack(
         alignment: AlignmentDirectional.centerStart,
         children: <Widget>[

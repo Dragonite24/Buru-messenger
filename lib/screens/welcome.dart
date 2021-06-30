@@ -11,6 +11,7 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
+  var isLogged = true;
   startTime() async {
     var duration = new Duration(seconds: 2);
     return new Timer(duration, route);
@@ -18,7 +19,7 @@ class _WelcomeState extends State<Welcome> {
 
   route() {
     // если зареган то на главную
-    if (false)
+    if (isLogged)
       Navigator.push<void>(
           context,
           MaterialPageRoute<void>(

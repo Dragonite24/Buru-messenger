@@ -29,6 +29,7 @@ dependencies:
   flutter_svg: ^0.22.0
   dio: ^3.0.9
   shared_preferences: ^2.0.5
+  contacts_service: ^0.6.1
 
 
 dev_dependencies:
@@ -47,6 +48,8 @@ flutter:
 
   assets:
       - assets/
+      - assets/icons/
+      - assets/icons/navbar/
       #- assets/icons/gift.svg
       #- assets/icons/payment.svg
   
